@@ -1,0 +1,65 @@
+///select name from student order by alphabetically
+
+
+SELECT concat(Fname, ' ', Lname) 
+from Student
+order by Fname;
+
+
+
+
+
+
+/// select student name to find his or her courses information.
+
+SELECT c.CRN, c.Name, c.Location, c.Time
+from Student s 
+join Login l
+on s.Student_ID = l.Student_id
+join Course c
+on l.Course_name = c.Name
+where concat(s.Fname, ' ', s.Lname) = "Zekun Tang";
+
+
+
+
+
+////select student id to find his or her personal info
+
+
+SELECT s.Fname, s.Lname, s.Major, s.Level, s.Email
+from Student s 
+where Student_id = 951319001; 
+
+
+///
+SELECT Name FROM Course;
+
+
+
+
+//////select course name to find who registered this class
+
+SELECT s.Student_ID,concat(s.Fname, ' ', s.Lname) AS Name
+from Student s join Login l
+on s.Student_id = l.Student_id
+where l.Course_name = "ANTH173";
+
+
+//// insert new course to database
+
+
+select concat(Fname, ' ', Lname) from Instructor order by Fname;
+
+
+insert into Course(CRN, Name,Instructor,Group_require, Level, On_line, Credits, Location, Time)
+values(10000, "AAD200", "yeah", "AC", "Bothlevel", "No", 4, "EMU", "M" );
+
+
+
+
+//// insert new instructor to database
+insert into Instructor(Instructor_ID, Fname, Lname, Department, Office, Email)
+values (211111, "Qili", "Ou", "CIS", "DES", "qili@uoregon.edu")
+
+
